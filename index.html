@@ -55,50 +55,34 @@
                 <p class="turn__text">turn</p>
             </section>
             <section class="board__restart"> 
-               <img class="restart__image" src="./assets/images/icon-restart.svg" alt="">  
+         <button type="button" class="button__restart"><img class="restart__image" src="./assets/images/icon-restart.svg" alt=""></button>   
             </section>
         </header>
         <section class="wrappers__bodys"> 
-            <section class="wrappers__tictoc"> 
+            <form class="wrappers__tictoc" novalidate> 
                 <section class="tictoc__box tictoc__box--1"> 
-                    <button type="button" class="button__tictoc">
-                       <img id="box-1" class="tictoc__image" src="" alt="">
-                    </button>
+                    <button type="button" class="button__tictoc"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--2"> 
-                    <button type="button" class="button__tictoc">
-                       <img id="box-2" class="tictoc__image" src="./assets/images/icon-x.svg" alt="">
-                    </button>
+                    <button type="button" class="button__tictoc"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--3"> 
-                    <button type="button" class="button__tictoc">
-                       <img id="box-3" class="tictoc__image" src="./assets/images/icon-o.svg" alt="">
-                    </button>
+                    <button type="button" class="button__tictoc"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--4"> 
-                    <button type="button" class="button__tictoc">
-                       <img id="box-4" class="tictoc__image" src="./assets/images/icon-x-outline.svg" alt="">
-                    </button>
+                    <button type="button" class="button__tictoc"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--5"> 
-                    <button type="button" class="button__tictoc">
-                       <img id="box-5" class="tictoc__image" src="./assets/images/icon-o.svg" alt="">
-                    </button>
+                    <button type="button" class="button__tictoc"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--6"> 
-                    <button type="button" class="button__tictoc">
-                       <img id="box-6" class="tictoc__image" src="./assets/images/icon-x.svg" alt="">
-                    </button>
+                    <button type="button" class="button__tictoc"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--7"> 
-                    <button type="button" class="button__tictoc">
-                       <img id="box-7" class="tictoc__image" src="./assets/images/icon-o-outline.svg" alt="">
-                    </button>
+                    <button type="button" class="button__tictoc"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--8"> 
-                    <button type="button" class="button__tictoc">
-                       <img id="box-8" class="tictoc__image" src="./assets/images/icon-x.svg" alt="">
-                    </button>
+                    <button type="button" class="button__tictoc"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--9"> 
                     <button type="button" class="button__tictoc">
@@ -113,12 +97,13 @@
                     <h3 class="results__title">Ties</h3>  
                     <p class="results__number">32</p>
                 </section>
-                <section class="tictoc__results tictoc__results--x"> 
+                <section class="tictoc__results tictoc__results--o"> 
                     <h3 class="results__title">X (CPU)</h3>  
                     <p class="results__number">07</p>
                 </section>
-            </section>
-            <section class="wrappers__mess">     
+            </form>
+
+            <section class="wrappers__mess display__none">     
                 <h4 class="mess__title mess__title--lost display__none" id="lost">Oh no, you lost</h4>
                 <h4 class="mess__title mess__title--won" id="won">You won!</h4>
                 <h4 class="mess__title mess__title--p1 display__none" id="play1">Player 1  wins!</h4>

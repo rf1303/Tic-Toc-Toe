@@ -261,6 +261,7 @@ body {
 }
 
 .restart__image {
+  background-color: #a8bfc9;
   inline-size: clamp(0.961rem, 0.6845rem + 1.1796vw, 1.25rem);
   block-size: clamp(0.961rem, 0.6845rem + 1.1796vw, 1.25rem);
 }
@@ -278,20 +279,60 @@ body {
 
 .tictoc__box {
   block-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #1f3641;
   border-radius: 0.625rem;
 }
 
 .button__tictoc {
+  inline-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
+  block-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
+  border-radius: 0.625rem;
   background-color: #1f3641;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tictoc__image {
   inline-size: clamp(2.5rem, 1.0651rem + 6.1224vw, 4rem);
   block-size: clamp(2.5rem, 1.0651rem + 6.1224vw, 4rem);
+}
+
+.tictoc__results {
+  block-size: clamp(4rem, 3.5217rem + 2.0408vw, 4.5rem);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.results__title {
+  align-self: end;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.results__number {
+  align-self: start;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tictoc__results--x {
+  background-color: #31c3bd;
+  border-radius: 0.9375rem;
+}
+
+.tictoc__results--t {
+  background-color: #a8bfc9;
+  border-radius: 0.9375rem;
+}
+
+.tictoc__results--o {
+  background-color: #f2b137;
+  border-radius: 0.9375rem;
 }
 
 .display__none {
