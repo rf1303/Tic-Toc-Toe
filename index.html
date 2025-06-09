@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script type="module" src="./assets/js/main.js" defer ></script>
+  
+    <title>Frontend Mentor | Tic Tac Toe</title>
+</head>
+<body>
+<!-- New game menu start -->
+    <header class="wrappers__picks display__none"> 
+        <section class="wrappers__logo"> 
+            <img class="logo__image" src="./assets/images/logo.svg" alt="image logo game">     
+        </section>
+        <section class="wrappers__mark"> 
+            <h1 class="mark__title">Pick player 1's mark</h1>
+            <section class="mark__player"> 
+                <section class="player__pick"> 
+                    <section class="player__box"> 
+                        <input type="radio" name="mark" value="x" id="playerX" class="player__radio" >
+                        <label for="playerX" class="button__XO"><svg  viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill="currentColor" fill-rule="evenodd"/></svg></label>
+                    </section>
+                    <section class="player__box"> 
+                        <input type="radio" name="mark" value="o" id="playerO" class="player__radio" checked >
+                        <label for="playerO"  class="button__XO"><svg viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" fill="currentColor"/></svg></label>
+                    </section>
+                </section>
+            </section>
+            <p class="mark__description">Remember: X goes first</p>
+        </section>
+        <section class="wrappers__games"> 
+            <section class="games__cpu"> 
+                <button type="button" class="button__cpu">New Game (vs CPU)</button>                   
+            </section> 
+            <section class="games__cpu"> 
+                <button type="button" class="button__person">New Game (vs player)</button>   
+            </section> 
+        </section>
+    </header>
+<!-- New game menu end -->
+
+<!-- Game board start -->
+    
+    <main class="wrappers__board "> <!-- display__none -->
+        <header class="board__heads"> 
+            <img class="heads__logo" src="./assets/images/logo.svg" alt="">  
+            <section class="board__turn"> 
+                <span class="turn__icon--o display__none"><svg viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" fill="currentColor" /></svg></span> 
+                <span class="turn__icon--x">
+                   <svg  viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill="currentColor" fill-rule="evenodd"/></svg>
+                </span> 
+                <p class="turn__text">turn</p>
+            </section>
+            <section class="board__restart"> 
+               <img class="restart__image" src="./assets/images/icon-restart.svg" alt="">  
+            </section>
+        </header>
+        <section class="wrappers__bodys"> 
+            <section class="wrappers__tictoc"> 
+                <section class="tictoc__box tictoc__box--1"> 
+                    <button type="button" class="button__tictoc">
+                       <img id="box-1" class="tictoc__image" src="" alt="">
+                    </button>
+                </section>
+                <section class="tictoc__box tictoc__box--2"> 
+                    <button type="button" class="button__tictoc">
+                       <img id="box-2" class="tictoc__image" src="./assets/images/icon-x.svg" alt="">
+                    </button>
+                </section>
+                <section class="tictoc__box tictoc__box--3"> 
+                    <button type="button" class="button__tictoc">
+                       <img id="box-3" class="tictoc__image" src="./assets/images/icon-o.svg" alt="">
+                    </button>
+                </section>
+                <section class="tictoc__box tictoc__box--4"> 
+                    <button type="button" class="button__tictoc">
+                       <img id="box-4" class="tictoc__image" src="./assets/images/icon-x-outline.svg" alt="">
+                    </button>
+                </section>
+                <section class="tictoc__box tictoc__box--5"> 
+                    <button type="button" class="button__tictoc">
+                       <img id="box-5" class="tictoc__image" src="./assets/images/icon-o.svg" alt="">
+                    </button>
+                </section>
+                <section class="tictoc__box tictoc__box--6"> 
+                    <button type="button" class="button__tictoc">
+                       <img id="box-6" class="tictoc__image" src="./assets/images/icon-x.svg" alt="">
+                    </button>
+                </section>
+                <section class="tictoc__box tictoc__box--7"> 
+                    <button type="button" class="button__tictoc">
+                       <img id="box-7" class="tictoc__image" src="./assets/images/icon-o-outline.svg" alt="">
+                    </button>
+                </section>
+                <section class="tictoc__box tictoc__box--8"> 
+                    <button type="button" class="button__tictoc">
+                       <img id="box-8" class="tictoc__image" src="./assets/images/icon-x.svg" alt="">
+                    </button>
+                </section>
+                <section class="tictoc__box tictoc__box--9"> 
+                    <button type="button" class="button__tictoc">
+                       <img id="box-9" class="tictoc__image" src="./assets/images/icon-x.svg" alt="">
+                    </button>
+                </section>
+                <section class="tictoc__results tictoc__results--x"> 
+                    <h3 class="results__title">X (You)</h3>  
+                    <p class="results__number">14</p>
+                </section>
+                <section class="tictoc__results tictoc__results--t"> 
+                    <h3 class="results__title">Ties</h3>  
+                    <p class="results__number">32</p>
+                </section>
+                <section class="tictoc__results tictoc__results--x"> 
+                    <h3 class="results__title">X (CPU)</h3>  
+                    <p class="results__number">07</p>
+                </section>
+            </section>
+            <section class="wrappers__mess">     
+                <h4 class="mess__title mess__title--lost display__none" id="lost">Oh no, you lost</h4>
+                <h4 class="mess__title mess__title--won" id="won">You won!</h4>
+                <h4 class="mess__title mess__title--p1 display__none" id="play1">Player 1  wins!</h4>
+                <h4 class="mess__title mess__title--p2 display__none" id="play2">Player 2  wins!</h4>
+                <section class="mess__round"> 
+                    <img class="round__image" src="./assets/images/icon-o.svg" alt="">  
+                    <p class="round__text">takes the round</p>
+                    <p class="round__text--tied display__none">Round tied</p>
+                    <p class="round__text--rest display__none">Restart game?</p>
+                </section>
+                <button type="button" class="button__quit">quiet</button>
+                <button type="button" class="button__next">Next round</button>
+                <button type="button" class="button__cancel display__none">No, cancel</button>
+                <button type="button" class="button__restart display__none">Yes, restart</button>
+            </section>
+        </section>
+    </main>
+  <!-- Game board end -->
+
+</body>
+</html>

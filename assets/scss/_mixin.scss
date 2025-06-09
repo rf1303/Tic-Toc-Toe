@@ -1,0 +1,17 @@
+@use './variables' as *;
+
+@mixin buttonPlay ($color) {
+  width: 100%;
+  @include tgSize($text-4, 700);
+  text-transform: uppercase;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: $color;
+}
+
+@mixin tgSize($size , $weight ) {
+  font-size: $size;
+  font-weight: $weight;
+}
+

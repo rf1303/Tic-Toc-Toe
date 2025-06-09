@@ -1,0 +1,301 @@
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  /*  BORDES DE TODO */
+  /*     outline: 2px solid lime;   */
+  /* #### FONDO SATURADO #### */
+  /* background: hsl(0, 100%, 50% / .1); */
+  /*  background: hsl(0, 100%, calc(50% / 10)); */
+  /**/
+  /* background: rgba(255, 0, 0, 0.1); // Rojo con 10% de opacidad */
+  /* background: hsl(0, 100%, 5%);  // 50% / 10 = 5% */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+p a {
+  display: inline;
+}
+
+img, video, iframe, picture, figure {
+  display: block;
+  max-width: 100%;
+}
+
+form, input, select, textarea, button, label {
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+}
+
+@font-face {
+  font-family: "outfit", Arial, Helvetica, sans-serif;
+  src: url("../fonts/Outfit-VariableFont_wght.woff2");
+  font-weight: 100 900;
+}
+:root {
+  --box-shadow:
+    7px 10px 8px 0px rgba(4, 15, 20, 0.71),
+    inset -8px -10px 8px -7px rgba(16, 33, 42, 0.8),
+    -7px 10px 8px 0px rgba(4, 15, 20, 0.81),
+    inset 7px 5px 8px -4px rgba(16, 33, 42, 0.7);
+  --btn-shad-cpu:
+    inset 0px -3px 8px 8px #e29d1d,
+    4px 7px 6px 0px rgba(0, 0, 0, 0.5),
+    -5px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  --btn-shad-play:
+    inset 0px -3px 12px 11px hsl(177, 70%, 28%),
+    4px 7px 6px 0px rgba(0, 0, 0, 0.5),
+    -5px 1px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  background-color: #1a2a33;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  font-family: outfit, Arial, Helvetica, sans-serif;
+}
+
+.wrappers__picks {
+  inline-size: clamp(20.438rem, 12.4865rem + 33.9265vw, 28.75rem);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.wrappers__mark {
+  inline-size: clamp(20.438rem, 12.4865rem + 33.9265vw, 28.75rem);
+  background-color: #1f3641;
+  border-radius: 0.9375rem;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+  color: #a8bfc9;
+  padding: 1.5rem;
+  /* box-shadow: 0px 9px 7px 0px rgba(#10212A,1); */
+  /* box-shadow: 2px 9px 5px 0px #10212A; */
+  box-shadow: 7px 10px 8px 0px rgba(4, 15, 20, 0.71), inset -8px -10px 8px -7px rgba(16, 33, 42, 0.8), -7px 10px 8px 0px rgba(4, 15, 20, 0.81), inset 7px 5px 8px -4px rgba(16, 33, 42, 0.7);
+}
+
+.mark__title {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.mark__description {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.mark__player {
+  background-color: #1a2a33;
+  border-radius: 0.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.player__pick {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.player__box {
+  inline-size: clamp(8.249rem, 4.3019rem + 16.8408vw, 12.375rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button__XO {
+  inline-size: clamp(8.249rem, 4.3019rem + 16.8408vw, 12.375rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  padding: 0.625rem;
+  transition: opacity 0.5s ease, background 0.5s ease;
+}
+.button__XO svg {
+  inline-size: 2rem;
+  block-size: 2rem;
+}
+
+.player__radio:checked + .button__XO {
+  background-color: #a8bfc9;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), -1px -1px 3px 1px rgba(0, 0, 0, 0.3), 0.3px 0.3px 3px 1px rgba(0, 0, 0, 0.3) inset, -0.3px -0.3px 3px 1px rgba(0, 0, 0, 0.3) inset;
+  color: #1a2a33;
+}
+
+.player__radio {
+  opacity: 0;
+  inline-size: 0;
+  block-size: 0;
+}
+
+.wrappers__games {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.games__cpu {
+  width: 100%;
+}
+
+.button__cpu {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #ffc860;
+  box-shadow: var(--btn-shad-cpu);
+}
+
+.button__person {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #65e9e4;
+  box-shadow: var(--btn-shad-play);
+}
+
+.wrappers__board {
+  inline-size: clamp(20.5rem, 12.6078rem + 33.6735vw, 28.75rem);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.board__heads {
+  inline-size: clamp(20.5rem, 12.6078rem + 33.6735vw, 28.75rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.board__turn {
+  inline-size: clamp(6rem, -777.4821rem + 3342.8571vw, 825rem);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #1f3641;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.turn__icon--o svg,
+.turn__icon--x svg {
+  inline-size: clamp(1rem, 0.7608rem + 1.0204vw, 1.25rem);
+  block-size: clamp(1rem, 0.7608rem + 1.0204vw, 1.25rem);
+  color: #a8bfc9;
+  display: flex;
+  align-items: center;
+}
+
+.turn__text {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #a8bfc9;
+}
+
+.board__restart {
+  inline-size: clamp(2.5rem, 1.7825rem + 3.0612vw, 3.25rem);
+  block-size: clamp(2.5rem, 1.7825rem + 3.0612vw, 3.25rem);
+  background-color: #a8bfc9;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.restart__image {
+  inline-size: clamp(0.961rem, 0.6845rem + 1.1796vw, 1.25rem);
+  block-size: clamp(0.961rem, 0.6845rem + 1.1796vw, 1.25rem);
+}
+
+.wrappers__bodys {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.wrappers__tictoc {
+  display: grid;
+  grid-template-columns: repeat(3, clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem));
+  gap: 1.25rem;
+}
+
+.tictoc__box {
+  block-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f3641;
+  border-radius: 0.625rem;
+}
+
+.button__tictoc {
+  background-color: #1f3641;
+}
+
+.tictoc__image {
+  inline-size: clamp(2.5rem, 1.0651rem + 6.1224vw, 4rem);
+  block-size: clamp(2.5rem, 1.0651rem + 6.1224vw, 4rem);
+}
+
+.display__none {
+  display: none !important;
+}
+
+/*# sourceMappingURL=style.css.map */
