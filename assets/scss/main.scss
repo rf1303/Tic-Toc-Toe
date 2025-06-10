@@ -24,11 +24,11 @@
 
 body {
   background-color: $navyDark;
+  font-family: outfit, Arial, Helvetica, sans-serif;
+  position: relative;
   display: grid;
   justify-items: center;
   align-items: center;
-  font-family: outfit, Arial, Helvetica, sans-serif;
-  position: relative;
 }
 
 .wrappers__picks {
@@ -142,6 +142,7 @@ body {
   justify-items: center;
   align-items: center;
   gap: $space-800;
+  margin-block-start: -6.5rem;
 }
 
 .board__heads {
@@ -152,7 +153,7 @@ body {
 }
 
 .board__turn {
-  inline-size: clamp(6rem, -777.4821rem + 3342.8571vw, 825rem);
+  inline-size: clamp(6rem, -777.4821rem + 3342.8571vw, 8.25rem);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -180,6 +181,7 @@ body {
   inline-size: clamp(2.5rem, 1.7825rem + 3.0612vw, 3.25rem);
   block-size: clamp(2.5rem, 1.7825rem + 3.0612vw, 3.25rem);
   background-color: $silver;
+  @include shadowTwo($silver300);
   border-radius: $space-100;
   display: flex;
   align-items: center;
@@ -267,12 +269,23 @@ body {
   transition: opacity 1s ease;
 }
 
-.wrappers__mess {
+.wrappers__takes {
   position: absolute;
   inset-block-start: 30%;
+  background-color: $navySemiDark;
   inline-size: 100%;
-  /* block-size: clamp(17.5rem, 4.8839rem + 53.8286vw, 30.688rem); */ //
   block-size: clamp(14.25rem, 11.978rem + 9.6939vw, 16.625rem);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.wrappers__mess {
+  position: absolute;
+  inset-block-start: 15%;
+  inline-size: clamp(17.5rem, 4.8839rem + 53.8286vw, 30.688rem); 
+  block-size: clamp(8.75rem, 6.5976rem + 9.1837vw, 11rem);
   display: grid;
   justify-items: center;
   align-items: center;
@@ -300,11 +313,82 @@ body {
 }
 
 .round__text {
-  @include tgSize($text-2, 700);
+  @include tgSize(clamp(1.5rem, 0.5434rem + 4.0816vw, 2.5rem), 700);
   text-transform: uppercase;
   color: $yellow600;
 }
 
+.wrappers__game {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: $space-300;
+}
+
+.round__text--tied {
+  @include tgSize(clamp(1.5rem, 0.5434rem + 4.0816vw, 2.5rem), 700);
+  line-height: 1;
+  text-transform: uppercase;
+  color: $silver;
+}
+
+.round__text--x {
+  color: $lightBlue;
+}
+
+.buttons__round {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $space-200;
+}
+
+.button__quit {
+  inline-size: 4.75rem;
+  block-size: 3.25rem;
+  background-color: $silver;
+  @include shadowTwo($silver300);
+  border-radius: $space-125;
+  @include tgSize($text-4, 700);
+  text-transform: uppercase;
+}
+
+.button__next {
+  inline-size: 9.5rem;
+  block-size: 3.25rem;
+  background-color: $yellow600;
+  @include shadowTwo($yellow900);
+  border-radius: $space-125;
+  @include tgSize($text-4, 700);
+  text-transform: uppercase;
+}
+
+.button__cancel {
+  inline-size: 8.688rem;
+  block-size: 3.25rem;
+  background-color: $yellow600;
+  @include shadowTwo($yellow900);
+  border-radius: $space-125;
+  @include tgSize($text-4, 700);
+  text-transform: uppercase;
+}
+
+.button__restart--game {
+  inline-size: 9.438rem;
+  block-size: 3.25rem;
+  background-color: $silver;
+  @include shadowTwo($silver300);
+  border-radius: $space-125;
+  @include tgSize($text-4, 700);
+  text-transform: uppercase;
+}
+
 .display__none {
   display: none !important;
+}
+
+@media (min-width: 32em) {
+  .wrappers__board {
+    margin-block-start: 0;
+  }   
 }

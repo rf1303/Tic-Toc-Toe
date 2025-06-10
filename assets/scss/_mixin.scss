@@ -15,3 +15,11 @@
   font-weight: $weight;
 }
 
+
+@mixin shadow($color) {
+  box-shadow: inset 0px -8px 2px 0px $color;
+}
+
+@mixin shadowTwo($color) {
+  box-shadow: inset 0px -5px 0px 0px $color;
+}

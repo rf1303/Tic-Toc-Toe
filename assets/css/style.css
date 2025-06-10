@@ -79,11 +79,11 @@ form, input, select, textarea, button, label {
 
 body {
   background-color: #1a2a33;
+  font-family: outfit, Arial, Helvetica, sans-serif;
+  position: relative;
   display: grid;
   justify-items: center;
   align-items: center;
-  font-family: outfit, Arial, Helvetica, sans-serif;
-  position: relative;
 }
 
 .wrappers__picks {
@@ -212,6 +212,7 @@ body {
   justify-items: center;
   align-items: center;
   gap: 4rem;
+  margin-block-start: -6.5rem;
 }
 
 .board__heads {
@@ -251,6 +252,7 @@ body {
   inline-size: clamp(2.5rem, 1.7825rem + 3.0612vw, 3.25rem);
   block-size: clamp(2.5rem, 1.7825rem + 3.0612vw, 3.25rem);
   background-color: #a8bfc9;
+  box-shadow: inset 0px -5px 0px 0px #6b8997;
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
@@ -340,11 +342,23 @@ body {
   transition: opacity 1s ease;
 }
 
-.wrappers__mess {
+.wrappers__takes {
   position: absolute;
   inset-block-start: 30%;
+  background-color: #1f3641;
   inline-size: 100%;
   block-size: clamp(14.25rem, 11.978rem + 9.6939vw, 16.625rem);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.wrappers__mess {
+  position: absolute;
+  inset-block-start: 15%;
+  inline-size: clamp(17.5rem, 4.8839rem + 53.8286vw, 30.688rem);
+  block-size: clamp(8.75rem, 6.5976rem + 9.1837vw, 11rem);
   display: grid;
   justify-items: center;
   align-items: center;
@@ -373,14 +387,90 @@ body {
 }
 
 .round__text {
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 0.5434rem + 4.0816vw, 2.5rem);
   font-weight: 700;
   text-transform: uppercase;
   color: #f2b137;
 }
 
+.wrappers__game {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.round__text--tied {
+  font-size: clamp(1.5rem, 0.5434rem + 4.0816vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #a8bfc9;
+}
+
+.round__text--x {
+  color: #31c3bd;
+}
+
+.buttons__round {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button__quit {
+  inline-size: 4.75rem;
+  block-size: 3.25rem;
+  background-color: #a8bfc9;
+  box-shadow: inset 0px -5px 0px 0px #6b8997;
+  border-radius: 0.625rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.button__next {
+  inline-size: 9.5rem;
+  block-size: 3.25rem;
+  background-color: #f2b137;
+  box-shadow: inset 0px -5px 0px 0px #cc8b13;
+  border-radius: 0.625rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.button__cancel {
+  inline-size: 8.688rem;
+  block-size: 3.25rem;
+  background-color: #f2b137;
+  box-shadow: inset 0px -5px 0px 0px #cc8b13;
+  border-radius: 0.625rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.button__restart--game {
+  inline-size: 9.438rem;
+  block-size: 3.25rem;
+  background-color: #a8bfc9;
+  box-shadow: inset 0px -5px 0px 0px #6b8997;
+  border-radius: 0.625rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .display__none {
   display: none !important;
+}
+
+@media (min-width: 32em) {
+  .wrappers__board {
+    margin-block-start: 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
