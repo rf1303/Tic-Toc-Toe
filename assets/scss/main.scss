@@ -28,6 +28,7 @@ body {
   justify-items: center;
   align-items: center;
   font-family: outfit, Arial, Helvetica, sans-serif;
+  position: relative;
 }
 
 .wrappers__picks {
@@ -211,7 +212,7 @@ body {
 .button__tictoc {
   inline-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
   block-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
-  border-radius: $space-125;
+  border-radius: $space-150;
   background-color: $navySemiDark;
   display: flex;
   justify-content: center;
@@ -256,6 +257,52 @@ body {
 .tictoc__results--o {
   background-color: $yellow600;
   border-radius: $space-175;
+}
+
+.wrappers__back {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 11;
+  transition: opacity 1s ease;
+}
+
+.wrappers__mess {
+  position: absolute;
+  inset-block-start: 30%;
+  inline-size: 100%;
+  /* block-size: clamp(17.5rem, 4.8839rem + 53.8286vw, 30.688rem); */ //
+  block-size: clamp(14.25rem, 11.978rem + 9.6939vw, 16.625rem);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: $space-200;
+  background-color: $navySemiDark;
+  z-index: 50;
+}
+
+.mess__title {
+  @include tgSize($text-5, 700);
+  text-transform: uppercase;
+  color: $silver;
+}
+
+.mess__round {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $space-100;
+}
+
+.round__image {
+  inline-size: $space-350;
+  block-size: $space-350;
+}
+
+.round__text {
+  @include tgSize($text-2, 700);
+  text-transform: uppercase;
+  color: $yellow600;
 }
 
 .display__none {

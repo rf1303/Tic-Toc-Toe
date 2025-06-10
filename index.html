@@ -10,6 +10,7 @@
     <title>Frontend Mentor | Tic Tac Toe</title>
 </head>
 <body>
+    <div class="wrappers__back"></div>
 <!-- New game menu start -->
     <header class="wrappers__picks display__none"> 
         <section class="wrappers__logo"> 
@@ -61,31 +62,31 @@
         <section class="wrappers__bodys"> 
             <form class="wrappers__tictoc" novalidate> 
                 <section class="tictoc__box tictoc__box--1"> 
-                    <button type="button" class="button__tictoc"></button>
+                    <button type="button" class="button__tictoc button__tictoc--1"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--2"> 
-                    <button type="button" class="button__tictoc"></button>
+                    <button type="button" class="button__tictoc button__tictoc--2"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--3"> 
-                    <button type="button" class="button__tictoc"></button>
+                    <button type="button" class="button__tictoc button__tictoc--3"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--4"> 
-                    <button type="button" class="button__tictoc"></button>
+                    <button type="button" class="button__tictoc button__tictoc--4"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--5"> 
-                    <button type="button" class="button__tictoc"></button>
+                    <button type="button" class="button__tictoc button__tictoc--5"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--6"> 
-                    <button type="button" class="button__tictoc"></button>
+                    <button type="button" class="button__tictoc button__tictoc--6"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--7"> 
-                    <button type="button" class="button__tictoc"></button>
+                    <button type="button" class="button__tictoc button__tictoc--7"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--8"> 
-                    <button type="button" class="button__tictoc"></button>
+                    <button type="button" class="button__tictoc button__tictoc--8"></button>
                 </section>
                 <section class="tictoc__box tictoc__box--9"> 
-                    <button type="button" class="button__tictoc"></button>
+                    <button type="button" class="button__tictoc button__tictoc--9"></button>
                 </section>
                 <section class="tictoc__results tictoc__results--x"> 
                     <h3 class="results__title">X (You)</h3>  
@@ -101,21 +102,26 @@
                 </section>
             </form>
 
-            <section class="wrappers__mess display__none">     
-                <h4 class="mess__title mess__title--lost display__none" id="lost">Oh no, you lost</h4>
-                <h4 class="mess__title mess__title--won" id="won">You won!</h4>
-                <h4 class="mess__title mess__title--p1 display__none" id="play1">Player 1  wins!</h4>
-                <h4 class="mess__title mess__title--p2 display__none" id="play2">Player 2  wins!</h4>
-                <section class="mess__round"> 
-                    <img class="round__image" src="./assets/images/icon-o.svg" alt="">  
-                    <p class="round__text">takes the round</p>
-                    <p class="round__text--tied display__none">Round tied</p>
-                    <p class="round__text--rest display__none">Restart game?</p>
-                </section>
+        </section>
+        <section class="wrappers__mess "> <!-- display__none -->    
+            <h4 class="mess__title mess__title--p1" id="play1">Player 1  wins!</h4>
+            <section class="mess__round"> 
+               <section class="round__logo"> 
+                   <img class="round__image" src="./assets/images/icon-o.svg" alt="">  
+               </section>
+                <p class="round__text">takes the round</p>
+            </section>
+            <section class="buttons__round"> 
                 <button type="button" class="button__quit">quiet</button>
                 <button type="button" class="button__next">Next round</button>
-                <button type="button" class="button__cancel display__none">No, cancel</button>
-                <button type="button" class="button__restart display__none">Yes, restart</button>
+            </section>
+        </section>
+
+        <section class="wrappers__game display__none">     
+            <h4 class="mess__title mess__title--won" id="won">Restart game?</h4>
+            <section class="game__restart"> 
+                <button type="button" class="button__cancel">No, cancel</button>
+                <button type="button" class="button__restart">Yes, restart</button>
             </section>
         </section>
     </main>

@@ -14,10 +14,6 @@
   /*     outline: 2px solid lime;   */
   /* #### FONDO SATURADO #### */
   /* background: hsl(0, 100%, 50% / .1); */
-  /*  background: hsl(0, 100%, calc(50% / 10)); */
-  /**/
-  /* background: rgba(255, 0, 0, 0.1); // Rojo con 10% de opacidad */
-  /* background: hsl(0, 100%, 5%);  // 50% / 10 = 5% */
 }
 
 html {
@@ -87,6 +83,7 @@ body {
   justify-items: center;
   align-items: center;
   font-family: outfit, Arial, Helvetica, sans-serif;
+  position: relative;
 }
 
 .wrappers__picks {
@@ -286,7 +283,7 @@ body {
 .button__tictoc {
   inline-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
   block-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
-  border-radius: 0.625rem;
+  border-radius: 0.75rem;
   background-color: #1f3641;
   display: flex;
   justify-content: center;
@@ -333,6 +330,53 @@ body {
 .tictoc__results--o {
   background-color: #f2b137;
   border-radius: 0.9375rem;
+}
+
+.wrappers__back {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 11;
+  transition: opacity 1s ease;
+}
+
+.wrappers__mess {
+  position: absolute;
+  inset-block-start: 30%;
+  inline-size: 100%;
+  block-size: clamp(14.25rem, 11.978rem + 9.6939vw, 16.625rem);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #1f3641;
+  z-index: 50;
+}
+
+.mess__title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #a8bfc9;
+}
+
+.mess__round {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.round__image {
+  inline-size: 1.85rem;
+  block-size: 1.85rem;
+}
+
+.round__text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #f2b137;
 }
 
 .display__none {
