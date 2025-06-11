@@ -37,6 +37,20 @@ body {
   justify-items: center;
   align-items: center;
   gap: $space-400;
+  // opacity: 1;
+  // transition-property: display opacity;
+  // transition-duration: .3s;
+  // transition-behavior: allow-discrete;
+  //
+  // &:where(:not(.display__none)) {
+  //   display: allow-discrete grid; 
+  //   opacity: 1;
+  //   translate: 0 0;
+  //
+  //   @starting-style {
+  //     opacity: 0;
+  //   }
+  // }
 }
 
 .wrappers__mark {
@@ -145,6 +159,27 @@ body {
   margin-block-start: -6.5rem;
 }
 
+/* .wrappers__picks, */
+.wrappers__board{
+  opacity: 0;
+  translate: 0 40vb; 
+  transition-property: display opacity;
+  transition-duration: .7s;
+  transition-behavior: allow-discrete;
+
+  &:where(:not(.display__none)) {
+    display: allow-discrete grid; 
+    opacity: 1;
+    translate: 0 0;
+
+    @starting-style {
+      opacity: 0;
+      translate: 0 40vb; 
+    }
+  }
+}
+
+
 .board__heads {
   inline-size: clamp(20.5rem, 12.6078rem + 33.6735vw, 28.75rem);
   display: flex;
@@ -154,12 +189,15 @@ body {
 
 .board__turn {
   inline-size: clamp(6rem, -777.4821rem + 3342.8571vw, 8.25rem);
+  block-size: clamp(2.5rem, 1.7825rem + 3.0612vw, 3.25rem);
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: $navySemiDark;
   border-radius: $space-100;
+  @include shadowTwo($navyDarkB);
   padding: $space-100;
+  gap: $space-200;
 }
 
 .turn__icon--o svg,
@@ -172,7 +210,7 @@ body {
 }
 
 .turn__text {
-  @include tgSize($text-5, 700);
+  @include tgSize(clamp(0.875rem, 0.7554rem + 0.5102vw, 1rem), 700);
   text-transform: uppercase;
   color: $silver;
 }
@@ -205,17 +243,12 @@ body {
   gap: $space-275;
 }
 
-.tictoc__box {
-  block-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
-  background-color: $navySemiDark;
-  border-radius: $space-125;
-}
-
 .button__tictoc {
   inline-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
   block-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
   border-radius: $space-150;
   background-color: $navySemiDark;
+  @include shadowTwo($navyDarkB);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -224,6 +257,34 @@ body {
 .tictoc__image {
   inline-size: clamp(2.5rem, 1.0651rem + 6.1224vw, 4rem);
   block-size: clamp(2.5rem, 1.0651rem + 6.1224vw, 4rem);
+}
+
+.tictoc__image--x {
+  color: $lightBlue;
+}
+
+.tictoc__image--o {
+  color: $yellow600;
+}
+
+.tictoc__image--of {
+  background-color: $yellow600;
+  color: $navyDark;
+}
+
+.tictoc__image--xf {
+  background-color: $lightBlue;
+  color: $navyDark;
+}
+
+.button__tictoc--xf {
+  background-color: $lightBlue;
+  @include shadowTwo($lightBlueS);
+}
+
+.button__tictoc--of {
+  background-color: $yellow600;
+  @include shadowTwo($yellow900);
 }
 
 .tictoc__results {
@@ -242,7 +303,7 @@ body {
 
 .results__number {
   align-self: start;
-  @include tgSize($text-3, 700);
+  @include tgSize(clamp(1.25rem, 1.0108rem + 1.0204vw, 1.5rem), 700);
   line-height: 1;
 }
 

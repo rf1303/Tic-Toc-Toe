@@ -215,6 +215,26 @@ body {
   margin-block-start: -6.5rem;
 }
 
+/* .wrappers__picks, */
+.wrappers__board {
+  opacity: 0;
+  translate: 0 40vb;
+  transition-property: display opacity;
+  transition-duration: 0.7s;
+  transition-behavior: allow-discrete;
+}
+.wrappers__board:where(:not(.display__none)) {
+  display: allow-discrete grid;
+  opacity: 1;
+  translate: 0 0;
+}
+@starting-style {
+  .wrappers__board:where(:not(.display__none)) {
+    opacity: 0;
+    translate: 0 40vb;
+  }
+}
+
 .board__heads {
   inline-size: clamp(20.5rem, 12.6078rem + 33.6735vw, 28.75rem);
   display: flex;
@@ -223,13 +243,16 @@ body {
 }
 
 .board__turn {
-  inline-size: clamp(6rem, -777.4821rem + 3342.8571vw, 825rem);
+  inline-size: clamp(6rem, -777.4821rem + 3342.8571vw, 8.25rem);
+  block-size: clamp(2.5rem, 1.7825rem + 3.0612vw, 3.25rem);
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: #1f3641;
   border-radius: 0.5rem;
+  box-shadow: inset 0px -5px 0px 0px #10212A;
   padding: 0.5rem;
+  gap: 1rem;
 }
 
 .turn__icon--o svg,
@@ -242,7 +265,7 @@ body {
 }
 
 .turn__text {
-  font-size: 0.875rem;
+  font-size: clamp(0.875rem, 0.7554rem + 0.5102vw, 1rem);
   font-weight: 700;
   text-transform: uppercase;
   color: #a8bfc9;
@@ -276,17 +299,12 @@ body {
   gap: 1.25rem;
 }
 
-.tictoc__box {
-  block-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
-  background-color: #1f3641;
-  border-radius: 0.625rem;
-}
-
 .button__tictoc {
   inline-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
   block-size: clamp(6rem, 3.3693rem + 11.2245vw, 8.75rem);
   border-radius: 0.75rem;
   background-color: #1f3641;
+  box-shadow: inset 0px -5px 0px 0px #10212A;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -295,6 +313,34 @@ body {
 .tictoc__image {
   inline-size: clamp(2.5rem, 1.0651rem + 6.1224vw, 4rem);
   block-size: clamp(2.5rem, 1.0651rem + 6.1224vw, 4rem);
+}
+
+.tictoc__image--x {
+  color: #31c3bd;
+}
+
+.tictoc__image--o {
+  color: #f2b137;
+}
+
+.tictoc__image--of {
+  background-color: #f2b137;
+  color: #1a2a33;
+}
+
+.tictoc__image--xf {
+  background-color: #31c3bd;
+  color: #1a2a33;
+}
+
+.button__tictoc--xf {
+  background-color: #31c3bd;
+  box-shadow: inset 0px -5px 0px 0px #118c87;
+}
+
+.button__tictoc--of {
+  background-color: #f2b137;
+  box-shadow: inset 0px -5px 0px 0px #cc8b13;
 }
 
 .tictoc__results {
@@ -314,7 +360,7 @@ body {
 
 .results__number {
   align-self: start;
-  font-size: 1.25rem;
+  font-size: clamp(1.25rem, 1.0108rem + 1.0204vw, 1.5rem);
   font-weight: 700;
   line-height: 1;
 }
