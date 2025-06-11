@@ -4,16 +4,13 @@ const wrapperBoard = document.querySelector('.wrappers__board');
 const wrapperPick = document.querySelector('.wrappers__picks');
 
 
-
-export function cpuPlayer() {
+export function cpuPlayer(takesTitle) {
     playerBegin();
 
 }
 
-export function personPlayer() {
+export function personPlayer(takesTitle) {
     playerBegin();
-
-
 
 }
 

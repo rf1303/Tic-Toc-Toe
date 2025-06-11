@@ -37,20 +37,22 @@ body {
   justify-items: center;
   align-items: center;
   gap: $space-400;
-  // opacity: 1;
-  // transition-property: display opacity;
-  // transition-duration: .3s;
-  // transition-behavior: allow-discrete;
-  //
-  // &:where(:not(.display__none)) {
-  //   display: allow-discrete grid; 
-  //   opacity: 1;
-  //   translate: 0 0;
-  //
-  //   @starting-style {
-  //     opacity: 0;
-  //   }
-  // }
+  opacity: 0;
+  translate: 0 -40vb; 
+  transition-property: display opacity;
+  transition-duration: .5s;
+  transition-behavior: allow-discrete;
+
+  &:where(:not(.display__none)) {
+    display: allow-discrete grid; 
+    opacity: 1;
+    translate: 0 0;
+
+    @starting-style {
+      opacity: 0;
+      translate: 0 40vb; 
+    }
+  }
 }
 
 .wrappers__mark {
@@ -164,14 +166,12 @@ body {
   opacity: 0;
   translate: 0 40vb; 
   transition-property: display opacity;
-  transition-duration: .7s;
+  transition-duration: .5s;
   transition-behavior: allow-discrete;
-
   &:where(:not(.display__none)) {
     display: allow-discrete grid; 
     opacity: 1;
     translate: 0 0;
-
     @starting-style {
       opacity: 0;
       translate: 0 40vb; 
@@ -252,6 +252,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all .4 ease;
 }
 
 .tictoc__image {
@@ -280,11 +281,13 @@ body {
 .button__tictoc--xf {
   background-color: $lightBlue;
   @include shadowTwo($lightBlueS);
+  transition: all .4 ease;
 }
 
 .button__tictoc--of {
   background-color: $yellow600;
   @include shadowTwo($yellow900);
+  transition: all .4 ease;
 }
 
 .tictoc__results {

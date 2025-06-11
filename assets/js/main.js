@@ -7,13 +7,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const playerRadio = document.querySelectorAll('.player__radio');
     const buttonCpu = document.querySelector('.button__cpu');
     const buttonPerson = document.querySelector('.button__person');
+    const radioPlayer = document.querySelector('player__radio:checked'); 
+
+    
     
     buttonCpu.addEventListener('click', () => {
-        cpuPlayer() 
+        cpuPlayer(radioPlayer.value) 
     });
 
     buttonPerson.addEventListener('click', () => {
-        personPlayer();
+        personPlayer(radioPlayer.value);
     });
 
 });

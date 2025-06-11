@@ -92,6 +92,22 @@ body {
   justify-items: center;
   align-items: center;
   gap: 2rem;
+  opacity: 0;
+  translate: 0 -40vb;
+  transition-property: display opacity;
+  transition-duration: 0.5s;
+  transition-behavior: allow-discrete;
+}
+.wrappers__picks:where(:not(.display__none)) {
+  display: allow-discrete grid;
+  opacity: 1;
+  translate: 0 0;
+}
+@starting-style {
+  .wrappers__picks:where(:not(.display__none)) {
+    opacity: 0;
+    translate: 0 40vb;
+  }
 }
 
 .wrappers__mark {
@@ -220,7 +236,7 @@ body {
   opacity: 0;
   translate: 0 40vb;
   transition-property: display opacity;
-  transition-duration: 0.7s;
+  transition-duration: 0.5s;
   transition-behavior: allow-discrete;
 }
 .wrappers__board:where(:not(.display__none)) {
@@ -308,6 +324,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.4 ease;
 }
 
 .tictoc__image {
@@ -336,11 +353,13 @@ body {
 .button__tictoc--xf {
   background-color: #31c3bd;
   box-shadow: inset 0px -5px 0px 0px #118c87;
+  transition: all 0.4 ease;
 }
 
 .button__tictoc--of {
   background-color: #f2b137;
   box-shadow: inset 0px -5px 0px 0px #cc8b13;
+  transition: all 0.4 ease;
 }
 
 .tictoc__results {

@@ -12,29 +12,48 @@ let tictoc = Array(9).fill('');
 let turnPlayer = 'x';
 
 const buttonTictoc = document.querySelectorAll('.button__tictoc');
+/* const imageTictoc = buttonTictoc.querySelectorAll() */
 
 iconTurn();
 
-buttonTictoc.forEach( (btn, index) => {
-    console.log('btn antes: ', index);
-    btn.dataset.index = index;
-    console.log('btn despues: ', index);
-    btn.addEventListener('click', () => {
-        console.log('mostrar ❌ o ⭕: ', btn);
-        btnXO(btn, index);
-    }); 
-});
+export function tictocClicks(takesTitle) {
+    
+    buttonTictoc.forEach((btn, index) => {
+        console.log('btn antes: ', index);
+        btn.dataset.index = index;
+        console.log('btn despues: ', index);
+        btn.addEventListener('click', () => {
+            console.log('mostrar ❌ o ⭕: ', btn);
+            btnXO(btn, index);
+        });
+    });
+
+}
 
 function btnXO(btn, index) {
-    if (tictoc[index] !== "") return; 
-        
+    if (tictoc[index] !== "") return;
+
     tictoc[index] = turnPlayer;
     btn.innerHTML = turnPlayer === "x" ? iconX : iconO;
+    const winResults = tictocWin(turnPlayer);
 
-    turnPlayer = turnPlayer === "x" ? "o" : "x";
-    console.log('turnPlayer: ', turnPlayer);
-    console.log('tictoc: ',tictoc);
-    if(tictocWin(turnPlayer)) {
+    if (winResults) {
+        winResults.forEach(element => {
+            const eSvg = buttonTictoc[element].querySelector('svg');
+            switch (turnPlayer) {
+                case "x":
+                    buttonTictoc[element].classList.add('button__tictoc--xf');
+                    eSvg.classList.remove('tictoc__image--x');
+                    buttonTictoc[element].style.color = '#1a2a33';
+                    break;
+                case "o":
+                    buttonTictoc[element].classList.add('button__tictoc--of');
+                    eSvg.classList.remove('tictoc__image--o');
+                    buttonTictoc[element].style.color = '#1a2a33';
+                default:
+                    break;
+            }
+        });
         tictocResults(turnPlayer);
         return;
     }
@@ -42,24 +61,61 @@ function btnXO(btn, index) {
         tictocResults('tied');
         return;
     }
-
+    turnPlayer = turnPlayer === "x" ? "o" : "x";
+    iconTurn();
 }
 
+export function tictocWin(cmb) {
+    const altWin = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+    ];
+    // return altWin.some( alt => {
+    //     return alt.every(index => tictoc[index] === cmb );  
+    // });
+    for (const alt of altWin) {
+        if (alt.every(index => tictoc[index] === cmb)) {
+            console.log('tictocWin: ', alt, ' turnPlayer: ', turnPlayer);
+            return alt;
+        }
+    }
+    return null;
+}
 
 function iconTurn() {
-  const iconX = document.querySelector(".turn__icon--x");
-  const iconO = document.querySelector(".turn__icon--o");
+    const iconX = document.querySelector(".turn__icon--x");
+    const iconO = document.querySelector(".turn__icon--o");
 
-  if (turnPlayer === "x") {
-    iconX.classList.remove("display__none");
-    iconO.classList.add("display__none");
-  } else {
-    iconX.classList.add("display__none");
-    iconO.classList.remove("display__none");
-  }
+    if (turnPlayer === "x") {
+        iconX.classList.remove("display__none");
+        iconO.classList.add("display__none");
+    } else {
+        iconX.classList.add("display__none");
+        iconO.classList.remove("display__none");
+    }
 }
 
+function tictocResults(win) {
+    console.log('EL ganador es: ', win);
+    const wrapperBack = document.querySelector('.wrappers__back');
+    const wrappersTakes = document.querySelector('.wrappers__takes');
+    wrapperBack.classList.remove('display__none');
+    wrappersTakes.classList.remove('display__none');
 
+    switch (win) {
+        case "x":
+            break;
+
+        default:
+            break;
+    }
+}
 
 
 
