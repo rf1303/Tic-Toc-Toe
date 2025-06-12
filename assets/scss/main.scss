@@ -38,7 +38,7 @@ body {
   align-items: center;
   gap: $space-400;
   opacity: 0;
-  translate: 0 -40vb; 
+  /* translate: 0 -10vb;  */
   transition-property: display opacity;
   transition-duration: .5s;
   transition-behavior: allow-discrete;
@@ -50,7 +50,7 @@ body {
 
     @starting-style {
       opacity: 0;
-      translate: 0 40vb; 
+      /* translate: 0 10vb;  */
     }
   }
 }
@@ -158,13 +158,14 @@ body {
   justify-items: center;
   align-items: center;
   gap: $space-800;
-  margin-block-start: -6.5rem;
+  /* margin-block-start: -6.5rem; */
+  transition: margin .5s ease;
 }
 
 /* .wrappers__picks, */
 .wrappers__board{
-  opacity: 0;
-  translate: 0 40vb; 
+  opacity: 1;
+  /* translate: 0 10vb;  */
   transition-property: display opacity;
   transition-duration: .5s;
   transition-behavior: allow-discrete;
@@ -174,7 +175,7 @@ body {
     translate: 0 0;
     @starting-style {
       opacity: 0;
-      translate: 0 40vb; 
+      /* translate: 0 10vb;  */
     }
   }
 }
@@ -328,6 +329,7 @@ body {
 .wrappers__back {
   position: absolute;
   inset: 0;
+  inline-size: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 11;
   transition: opacity 1s ease;
