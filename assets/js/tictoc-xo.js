@@ -142,7 +142,8 @@ export function cleanBoard() {
     tictoc = Array(9).fill("");
     buttonTictoc.forEach(element => {
         element.innerHTML = "";
-        element.style.background = "#1f3641"; 
-        element.style.boxShadow = "inset 0px -8px 2px 0px #10212a";
+        /* element.style.background = "#1f3641";  */
+        element.style.boxShadow = "inset 0px -8px 2px 0px #10212a"; 
+        element.classList.remove('button__tictoc--of', 'button__tictoc--xf');
     });
 }
