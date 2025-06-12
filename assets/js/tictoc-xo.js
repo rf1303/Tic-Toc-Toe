@@ -12,6 +12,7 @@ let tictoc = Array(9).fill("");
 let turnPlayer = "x";
 let playX = 0;
 let playO = 0;
+let playC = 0;
 
 const buttonTictoc = document.querySelectorAll(".button__tictoc");
 /* const imageTictoc = buttonTictoc.querySelectorAll() */
@@ -110,6 +111,7 @@ function tictocResults(win) {
     const radioPlay = document.querySelector(".player__radio:checked");
     const resultsL = document.querySelector('.results__number--l');
     const resultsR = document.querySelector('.results__number--r');
+    const resultsC = document.querySelector('.results__number--c');
     wrapperBack.classList.remove("display__none");
     wrappersTakes.classList.remove("display__none");
     const nam = win === radioPlay.value ? 1 : 2;
@@ -131,7 +133,9 @@ function tictocResults(win) {
             resultsR.textContent = `${playO}`;
             break;
         case "tied": 
+            playC++;
             wrappersTied.classList.remove('display__none');
+            resultsC.textContent = `${playC}`;
         default:
             console.log('no hay ningun resultado');
             break;
@@ -142,8 +146,7 @@ export function cleanBoard() {
     tictoc = Array(9).fill("");
     buttonTictoc.forEach(element => {
         element.innerHTML = "";
-        /* element.style.background = "#1f3641";  */
-        element.style.boxShadow = "inset 0px -8px 2px 0px #10212a"; 
+        /* element.style.boxShadow = "inset 0px -8px 2px 0px #10212a";  */
         element.classList.remove('button__tictoc--of', 'button__tictoc--xf');
     });
 }
