@@ -4,10 +4,11 @@ import {cpuPlayer, personPlayer} from './players.js';
 document.addEventListener('DOMContentLoaded', function () {
     console.log('inicio ✅');
 
-    const playerRadio = document.querySelectorAll('.player__radio');
     const buttonCpu = document.querySelector('.button__cpu');
     const buttonPerson = document.querySelector('.button__person');
     const radioPlayer = document.querySelector('.player__radio:checked'); 
+    const buttonNext = document.querySelector('.button__next');
+    const buttonQuit = document.querySelector('.button__quit');
 
     console.log('radioPlayer: ', radioPlayer.value)
     
@@ -18,5 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     buttonPerson.addEventListener('click', () => {
         personPlayer();
     });
+
+
 
 });
