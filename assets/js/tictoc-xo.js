@@ -10,6 +10,8 @@ const iconOout = `<svg class="tictoc__mage" viewBox="0 0 66 66" width="66" heigh
 
 let tictoc = Array(9).fill("");
 let turnPlayer = "x";
+let playX = 0;
+let playO = 0;
 
 const buttonTictoc = document.querySelectorAll(".button__tictoc");
 /* const imageTictoc = buttonTictoc.querySelectorAll() */
@@ -22,7 +24,7 @@ export function tictocClicks() {
         btn.dataset.index = index;
         console.log("btn despues: ", index);
         btn.addEventListener("click", () => {
-            console.log("mostrar ❌ o ⭕: ", btn);
+            console.log('ahora: ', btn.dataset.index);
             btnXO(btn, index);
         });
     });
@@ -30,7 +32,8 @@ export function tictocClicks() {
 
 function btnXO(btn, index) {
     if (tictoc[index] !== "") return;
-
+    console.log('jugador ⛵ ', turnPlayer);
+    
     tictoc[index] = turnPlayer;
     btn.innerHTML = turnPlayer === "x" ? iconX : iconO;
     const winResults = tictocWin(turnPlayer);
@@ -52,7 +55,7 @@ function btnXO(btn, index) {
                     break;
             }
         });
-        tictocResults(turnPlayer);
+        tictocResults(turnPlayer); 
         return;
     }
     if (tictoc.every((btn) => btn !== "")) {
@@ -74,9 +77,6 @@ export function tictocWin(cmb) {
         [0, 4, 8],
         [2, 4, 6],
     ];
-    // return altWin.some( alt => {
-    //     return alt.every(index => tictoc[index] === cmb );
-    // });
     for (const alt of altWin) {
         if (alt.every((index) => tictoc[index] === cmb)) {
             console.log("tictocWin: ", alt, " turnPlayer: ", turnPlayer);
@@ -104,24 +104,45 @@ function tictocResults(win) {
     const wrapperBack = document.querySelector(".wrappers__back");
     const wrappersTakes = document.querySelector(".wrappers__takes");
     const wrappersMess = document.querySelector(".wrappers__mess");
+    const wrappersTied = document.getElementById("tied-w");
     const messTitle = document.querySelector(".mess__title");
     const roundImage = document.querySelector(".round__image");
     const radioPlay = document.querySelector(".player__radio:checked");
+    const resultsL = document.querySelector('.results__number--l');
+    const resultsR = document.querySelector('.results__number--r');
     wrapperBack.classList.remove("display__none");
     wrappersTakes.classList.remove("display__none");
-    wrappersMess.classList.remove("display__none");
     const nam = win === radioPlay.value ? 1 : 2;
-    console.log("NAM: ", nam);
     switch (win) {
         case "x":
+            wrappersMess.classList.remove("display__none");
+            playX++;
             messTitle.textContent = `Player ${nam} wins!`;
+            messTitle.style.color = "#31c3bd"
             roundImage.src = `./assets/images/icon-x.svg`;
+            resultsL.textContent = `${playX}`;
             break;
         case "o":
+            wrappersMess.classList.remove("display__none");
+            playO++;
             messTitle.textContent = `Player ${nam} wins!`;
+            messTitle.style.color = "#f2b137"
             roundImage.src = `./assets/images/icon-o.svg`;
+            resultsR.textContent = `${playO}`;
             break;
+        case "tied": 
+            wrappersTied.classList.remove('display__none');
         default:
+            console.log('no hay ningun resultado');
             break;
     }
+}
+
+export function cleanBoard() {
+    tictoc = Array(9).fill("");
+    buttonTictoc.forEach(element => {
+        element.innerHTML = "";
+        element.style.background = "#1f3641"; 
+        element.style.boxShadow = "inset 0px -8px 2px 0px #10212a";
+    });
 }

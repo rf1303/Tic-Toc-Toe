@@ -1,6 +1,11 @@
 import "./tictoc-xo.js";
 import { tictocClicks } from "./tictoc-xo.js";
 
+const buttonTictoc = document.querySelectorAll(".button__tictoc");
+const wrapperBack = document.querySelector(".wrappers__back");
+const wrappersTakes = document.querySelector(".wrappers__takes");
+const wrappersMess = document.querySelector(".wrappers__mess");
+const wrappersGame = document.querySelector(".wrappers__game");
 
 export function cpuPlayer(takesTitle) {
     playerBegin();
@@ -11,6 +16,14 @@ export function personPlayer() {
     playerBegin();
     playerTitles('two');
     tictocClicks();
+}
+
+
+export function cleanTakes() {
+   wrapperBack.classList.add('display__none'); 
+   wrappersMess.classList.add('display__none'); 
+   wrappersTakes.classList.add('display__none'); 
+   wrappersGame.classList.add('display__none'); 
 }
 
 function playerBegin() {
