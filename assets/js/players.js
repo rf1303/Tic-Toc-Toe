@@ -6,6 +6,9 @@ const wrapperBack = document.querySelector(".wrappers__back");
 const wrappersTakes = document.querySelector(".wrappers__takes");
 const wrappersMess = document.querySelector(".wrappers__mess");
 const wrappersGame = document.querySelector(".wrappers__game");
+const wrapperBoard = document.querySelector(".wrappers__board");
+const wrapperPick = document.querySelector(".wrappers__picks");
+const gameW = document.getElementById("game-w");
 
 export function cpuPlayer(takesTitle) {
     playerBegin();
@@ -18,6 +21,17 @@ export function personPlayer() {
     tictocClicks();
 }
 
+export function restartQ() {
+    wrappersTakes.classList.remove('display__none'); 
+    wrapperBack.classList.remove('display__none'); 
+    gameW.classList.remove('display__none'); 
+}
+export function restartC() {
+    wrappersTakes.classList.add('display__none'); 
+    wrapperBack.classList.add('display__none'); 
+    gameW.classList.add('display__none'); 
+}
+
 
 export function cleanTakes() {
    wrapperBack.classList.add('display__none'); 
@@ -27,11 +41,13 @@ export function cleanTakes() {
 }
 
 function playerBegin() {
-    const wrapperBoard = document.querySelector(".wrappers__board");
-    const wrapperPick = document.querySelector(".wrappers__picks");
-
     wrapperBoard.classList.remove("display__none");
     wrapperPick.classList.add("display__none");
+}
+
+export function tictocQuit() {
+    wrapperBoard.classList.add("display__none");
+    wrapperPick.classList.remove("display__none");
 }
 
 
