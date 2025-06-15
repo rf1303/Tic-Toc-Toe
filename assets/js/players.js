@@ -1,5 +1,5 @@
 import "./tictoc-xo.js";
-import { tictocClicks } from "./tictoc-xo.js";
+import { tictocClicks, gameCpu } from "./tictoc-xo.js";
 
 const buttonTictoc = document.querySelectorAll(".button__tictoc");
 const wrapperBack = document.querySelector(".wrappers__back");
@@ -10,9 +10,13 @@ const wrapperBoard = document.querySelector(".wrappers__board");
 const wrapperPick = document.querySelector(".wrappers__picks");
 const gameW = document.getElementById("game-w");
 
-export function cpuPlayer(takesTitle) {
+export function cpuGame() {
     playerBegin();
     playerTitles('cpu');
+    setTimeout(() => {
+        gameCpu();
+    }, 2000);
+    tictocClicks();
 }
 
 export function personPlayer() {
@@ -56,9 +60,9 @@ function playerTitles(titles) {
     const titleLeft = document.querySelector('.results__title--l');
     const titleRight = document.querySelector('.results__title--r');
     const nroX = nro === "x" ? 1 : 2;
-    console.log('nro - nroX: ', nro, ' ', nroX);
+    console.log('nro - nroX: ', nroX);
     const nroO = nro === "o" ? 1 : 2;
-    console.log('nro - nroO: ', nro, ' ', nroO);
+    console.log('nro - nroO: ', nroO);
     switch (titles) {
         case "two":
             titleLeft.textContent = `X(P${nroX})`;

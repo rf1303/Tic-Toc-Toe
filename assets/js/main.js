@@ -1,5 +1,5 @@
 import "./tictoc-xo.js";
-import { cpuPlayer, personPlayer, cleanTakes, tictocQuit, restartQ, restartC} from "./players.js";
+import { cpuGame, personPlayer, cleanTakes, tictocQuit, restartQ, restartC} from "./players.js";
 import { tictocClicks, cleanBoard, localSave } from "./tictoc-xo.js";
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("radioPlayer: ", radioPlayer.value);
 
     buttonCpu.addEventListener("click", () => {
-        cpuPlayer();
+        cpuGame();
     });
 
     buttonPerson.addEventListener("click", () => {
