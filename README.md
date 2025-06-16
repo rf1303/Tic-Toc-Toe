@@ -4,7 +4,42 @@ This is a solution to the [Tic Tac Toe challenge on Frontend Mentor](https://www
 
 ## Table of contents
 
+# Tic-Tac-Toe (Three in a Row) 
 
+A classic Three in a Row game developed with HTML, CSS, and JavaScript. It allows you to play locally against another player or against the CPU, with a turn-based system, winner detection, tie detection, and game history logging in the browser.
+
+## Features
+
+- ✅ Game for two players or against the CPU.
+- ✅ Visual SVG interface for the X and O pieces.
+- ✅ Automatic detection of wins and draws.
+- ✅ Visual turn indicator.
+- ✅ Automatic saving of history in `localStorage`.
+- ✅ Dynamic styles when winning (background color + icon).
+- ✅ Responsive and accessible.
+
+##  How to play
+
+1. Choose your token (`X` or `O`) using the radio buttons.
+2. Select whether you want to play against another player or against the CPU.
+3. Click on an empty cell on the board to play.
+4. The game will mark the turn and automatically detect if there is a winner or a tie.
+5. The result will be saved in the browser history.
+
+##  Game logic
+
+- The board is an array of 9 positions:  
+  `let tictoc = Array(9).fill(‘’);`
+
+- Winning combinations are defined as:
+```js
+const altWin = [
+  [0,1,2], [3,4,5], [6,7,8], // horizontal
+  [0,3,6], [1,4,7], [2,5,8], // vertical
+  [0,4,8], [2,4,6]           // diagonals
+];
+
+Translated with DeepL.com (free version)
 
 ## Overview
 
