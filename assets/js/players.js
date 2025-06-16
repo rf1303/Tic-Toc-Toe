@@ -62,21 +62,17 @@ function playerTitles(titles) {
     const nroX = nro === "x" ? 1 : 2;
     console.log('nro - nroX: ', nroX);
     const nroO = nro === "o" ? 1 : 2;
+    const cpuYouX = nro === "x" ? "X(YOU)" : "X(CPU)";
+    const cpuYouO = nro === "o" ? "O(YOU)" : "O(CPU)";
     console.log('nro - nroO: ', nroO);
     switch (titles) {
         case "two":
             titleLeft.textContent = `X(P${nroX})`;
-            titleRight.textContent = `X(P${nroO})`;
+            titleRight.textContent = `O(P${nroO})`;
             break;
         case "cpu": 
-            if (nro === "x") {
-                titleLeft.textContent = `X(YOU})`;
-                titleRight.textContent = `X(CPU)`;
-                
-            }  else {
-                titleLeft.textContent = `X(CPU)`;
-                titleRight.textContent = `X(YOU)`;
-                }
+            titleLeft.textContent = `${cpuYouX}`;
+            titleRight.textContent = `${cpuYouO}`;
             break
         default:
             break;

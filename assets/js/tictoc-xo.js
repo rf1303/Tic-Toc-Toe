@@ -1,4 +1,4 @@
-console.log("inicio tictoc-xo ✅");
+import { personPlayer } from "./players.js";
 
 const iconX = `<svg class="tictoc__image tictoc__image--x" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill="currentColor" fill-rule="evenodd"/></svg>`;
 
@@ -13,6 +13,11 @@ let turnPlayer = "x";
 let playX = 0;
 let playO = 0;
 let playC = 0;
+let playOne = 0;
+let playTwo = 0;
+let cpuScore = 0;
+let personScore = 0;
+let tiedScore = 0;
 let cpuMode = false;
 const altWin = [
     [0, 1, 2],
@@ -122,30 +127,53 @@ function tictocResults(win) {
     const resultsC = document.querySelector(".results__number--c");
     wrapperBack.classList.remove("display__none");
     wrappersTakes.classList.remove("display__none");
+    wrappersMess.classList.remove("display__none");
     const nam = win === radioPlay.value ? 1 : 2;
+    const cpuPers = win === radioPlay.value ? "YOU WON!" : "oh no, you lost!"; 
+    console.log('win - nam: ', win, ' ', nam);
     switch (win) {
         case "x":
-            wrappersMess.classList.remove("display__none");
-            playX++;
-            messTitle.textContent = `Player ${nam} wins!`;
+            if (cpuMode) {
+                messTitle.textContent = ` ${cpuPers}`;
+                cpuPersum(win, nam);
+                console.log('cpuMode - tictocResults x');
+            } else {
+                playX++;
+                messTitle.textContent = `Player ${nam} wins!`;
+                resultsL.textContent = `${playX}`;
+                console.log('Person - tictocResults x: ', playX);
+            }
             messTitle.style.color = "#31c3bd";
             roundImage.src = `./assets/images/icon-x.svg`;
-            resultsL.textContent = `${playX}`;
             break;
         case "o":
-            wrappersMess.classList.remove("display__none");
-            playO++;
-            messTitle.textContent = `Player ${nam} wins!`;
+            if (cpuMode) {
+                messTitle.textContent = ` ${cpuPers}`;
+                cpuPersum(win, nam);
+                console.log('cpuMode - tictocResults o: ', nam);
+            } else {
+                playO++;
+                messTitle.textContent = `Player ${nam} wins!`;
+                resultsR.textContent = `${playO}`;
+                console.log('Person - tictocResults o: ', playO);
+
+            }
             messTitle.style.color = "#f2b137";
             roundImage.src = `./assets/images/icon-o.svg`;
-            resultsR.textContent = `${playO}`;
             break;
         case "tied":
-            playC++;
+            if (cpuMode) {
+               tiedScore++; 
+               resultsC.textContent = `${tiedScore}`;
+            } else {
+                playC++;
+                resultsC.textContent = `${playC}`;
+                console.log('playC: ', playC);
+            }
+            messTitle.textContent = `TIED!`;
             wrappersTied.classList.remove("display__none");
-            resultsC.textContent = `${playC}`;
         default:
-            console.log("no hay ningun resultado");
+            console.log("no hay ningun resultado tictocResults");
             break;
     }
 }
@@ -156,21 +184,6 @@ export function cleanBoard() {
         element.innerHTML = "";
         element.classList.remove("button__tictoc--of", "button__tictoc--xf");
     });
-}
-
-export function localSave() {
-    const pO = playO;
-    const pX = playX;
-    const pC = playC;
-    const resultPlay = {
-        playO,
-        playX,
-        playC,
-        fecha: new Date().toISOString(),
-    };
-    const results = JSON.parse(localStorage.getItem("tictocResults")) || [];
-    results.push(resultPlay);
-    localStorage.setItem("tictocResults", JSON.stringify(results));
 }
 
 export function gameCpu() {
@@ -222,4 +235,66 @@ export function winnerCpu(cpuG) {
         }
     }
     return null;
+}
+
+function cpuPersum(win, nam) {
+    const resultsL = document.querySelector(".results__number--l");
+    const resultsR = document.querySelector(".results__number--r");
+     
+    switch (win) {
+        case "x":
+            const resX = nam === 1 ? ++personScore : ++cpuScore;
+            resultsL.textContent = `${resX}`;
+            console.log('cpuPersum resX: ',resX, ' ',personScore, ' ', cpuScore);
+            break;
+        case "o":
+            const resO = nam === 1 ? ++personScore : ++cpuScore;
+            resultsR.textContent = `${resO}`;
+            console.log('cpuPersum resO: ',resO, ' ',personScore, ' ', cpuScore);
+            break;
+        default:
+            console.log('No hay resultado cpuPersum');
+            break;
+    }
+}
+
+export function localSave() {
+        cpuMode = false;
+const resultPlay =  {
+        personScore,
+        cpuScore,
+        tiedScore,
+        playO,
+        playX,
+        playC,
+        fecha: new Date().toISOString(),
+    };
+
+    const results = JSON.parse(localStorage.getItem("tictocResults")) || [];
+    results.push(resultPlay); 
+    localStorage.setItem("tictocResults", JSON.stringify(results));
+}
+
+export function sumResults(win, nam) {
+    if (cpuMode) {
+        if (nam === 1) {
+            resultPlay.personScore++;            
+            console.log('cpu personScore: ', personScore);
+        } else {
+            resultPlay.cpuScore++;
+            console.log('cpu resultPlay: ', cpuScore);
+        }    
+    } else if (nam === 1) {
+        resultPlay.playOne++;
+        console.log('playOne: ', playOne);
+    } else {
+        resultPlay.playTwo++;
+        console.log('playTwo: ', playTwo);
+    } 
+        
+    if (win === "x") {
+        resultPlay.playX++;
+    } else {
+        resultPlay.playO++;
+    } 
 }

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log(localStorage.getItem('tictocResults'));
 
     mostrarHistorial();
-
+    let btnCpu = false;
     const buttonCpu = document.querySelector(".button__cpu");
     const buttonPerson = document.querySelector(".button__person");
     const radioPlayer = document.querySelector(".player__radio:checked");
@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("radioPlayer: ", radioPlayer.value);
 
     buttonCpu.addEventListener("click", () => {
+        btnCpu = true;
         cpuGame();
     });
 
@@ -31,15 +32,21 @@ document.addEventListener("DOMContentLoaded", function() {
         element.addEventListener("click", () => {
             cleanTakes();
             cleanBoard();
+            if (btnCpu) {
+                console.log('btnCpu buttonNext: ',btnCpu);
+                cpuGame();
+            }
             tictocClicks();
         });
     });
     buttonQuit.forEach((element) => {
         element.addEventListener("click", () => {
+            btnCpu = false;
             cleanTakes();
             cleanBoard();
-            tictocQuit();
             localSave();
+            tictocQuit();
+            console.log('buttonQuit btnCpu: ',btnCpu);
         });
     });
 
