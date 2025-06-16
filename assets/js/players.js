@@ -16,7 +16,7 @@ export function cpuGame() {
     playerTitles('cpu');
     setTimeout(() => {
         gameCpu();
-    }, 2000);
+    }, 1000);
     tictocClicks();
 }
 
