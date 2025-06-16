@@ -8,7 +8,8 @@ const wrappersMess = document.querySelector(".wrappers__mess");
 const wrappersGame = document.querySelector(".wrappers__game");
 const wrapperBoard = document.querySelector(".wrappers__board");
 const wrapperPick = document.querySelector(".wrappers__picks");
-const gameW = document.getElementById("game-w");
+const wrappersTied = document.getElementById("tied-w");
+const gameW = document.querySelector(".wrappers__game--w");
 
 export function cpuGame() {
     playerBegin();
@@ -38,10 +39,11 @@ export function restartC() {
 
 
 export function cleanTakes() {
-   wrapperBack.classList.add('display__none'); 
-   wrappersMess.classList.add('display__none'); 
-   wrappersTakes.classList.add('display__none'); 
-   wrappersGame.classList.add('display__none'); 
+    wrapperBack.classList.add('display__none'); 
+    wrappersMess.classList.add('display__none'); 
+    wrappersTakes.classList.add('display__none'); 
+    wrappersGame.classList.add('display__none'); 
+    wrappersTied.classList.add('display__none');
 }
 
 function playerBegin() {

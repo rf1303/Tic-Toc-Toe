@@ -37,22 +37,7 @@ body {
   justify-items: center;
   align-items: center;
   gap: $space-400;
-  opacity: 0;
-  /* translate: 0 -10vb;  */
-  transition-property: display opacity;
-  transition-duration: .3s;
-  transition-behavior: allow-discrete;
-
-  &:where(:not(.display__none)) {
-    display: allow-discrete grid; 
-    opacity: 1;
-    translate: 0 0;
-
-    @starting-style {
-      opacity: 0;
-      /* translate: 0 10vb;  */
-    }
-  }
+  transition: all .3s ease;
 }
 
 .wrappers__mark {
@@ -158,24 +143,24 @@ body {
   justify-items: center;
   align-items: center;
   gap: $space-800;
-  /* margin-block-start: -6.5rem;  */
-  transition: margin .5s ease;
+  margin-block-start: -6.5rem; 
+  opacity: 0;
 }
 
-/* .wrappers__picks, */
-.wrappers__board{
+/* .wrappers__picks,   */
+.wrappers__board {
   opacity: 0;
-  /* translate: 0 10vb;  */
+  /* translate: 0 20vb;   */
   transition-property: display opacity;
   transition-duration: .5s;
   transition-behavior: allow-discrete;
   &:where(:not(.display__none)) {
     display: allow-discrete grid; 
     opacity: 1;
-    /* translate: 0 0; */
+    /* translate: 0 0;  */
     @starting-style {
       opacity: 0;
-      /* translate: 0 10vb;  */
+      /* translate: 0 20vb;   */
     }
   }
 }
@@ -453,7 +438,7 @@ body {
   display: none;
 }
 
-@media (max-width: 32em) {
+@media (min-width: 32em) {
   .wrappers__board {
     margin-block-start: 0;
   }   
@@ -464,9 +449,9 @@ body {
 .wrappers__mess,
 .wrappers__game {
   opacity: 0;
-  translate: 0 -40vb;  
+  translate: 0 40vb;   
   transition-property: display opacity;
-  transition-duration: .6s;
+  transition-duration: .5s;
   transition-behavior: allow-discrete;
 
   &:where(:not(.display__none)) {
@@ -476,7 +461,7 @@ body {
 
     @starting-style {
       opacity: 0;
-      translate: 0 40vb;
+      translate: 0 40vb; 
     }
   }
 }
